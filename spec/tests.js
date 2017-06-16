@@ -197,5 +197,69 @@ module.exports = [
         equal: false
       }
     ]
+  },
+  {
+    description: 'Date objects',
+    tests: [
+      {
+        description: 'equal date objects',
+        value1: new Date('2017-06-16T21:36:48.362Z'),
+        value2: new Date('2017-06-16T21:36:48.362Z'),
+        equal: true
+      },
+      {
+        description: 'not equal date objects',
+        value1: new Date('2017-06-16T21:36:48.362Z'),
+        value2: new Date('2017-01-01T00:00:00.000Z'),
+        equal: false
+      },
+      {
+        description: 'date and string are not equal',
+        value1: new Date('2017-06-16T21:36:48.362Z'),
+        value2: '2017-06-16T21:36:48.362Z',
+        equal: false
+      },
+      {
+        description: 'date and object are not equal',
+        value1: new Date('2017-06-16T21:36:48.362Z'),
+        value2: {},
+        equal: false
+      }
+    ]
+  },
+  {
+    description: 'RegExp objects',
+    tests: [
+      {
+        description: 'equal RegExp objects',
+        value1: /foo/,
+        value2: /foo/,
+        equal: true
+      },
+      {
+        description: 'not equal RegExp objects (different pattern)',
+        value1: /foo/,
+        value2: /bar/,
+        equal: false
+      },
+      {
+        description: 'not equal RegExp objects (different flags)',
+        value1: /foo/,
+        value2: /foo/i,
+        equal: false
+      },
+      {
+        description: 'RegExp and string are not equal',
+        value1: /foo/,
+        value2: 'foo',
+        equal: false
+      },
+      {
+        description: 'RegExp and object are not equal',
+        value1: /foo/,
+        value2: {},
+        equal: false
+      }
+    ]
   }
 ];
