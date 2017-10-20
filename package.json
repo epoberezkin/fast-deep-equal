@@ -47,5 +47,6 @@
       "lcov",
       "text-summary"
     ]
-  }
+  },
+  "types": "index.d.ts"
 }
