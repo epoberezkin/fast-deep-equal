@@ -47,5 +47,8 @@
       "lcov",
       "text-summary"
     ]
-  }
+  },
+  "files": [
+    "index.js"
+  ]
 }
