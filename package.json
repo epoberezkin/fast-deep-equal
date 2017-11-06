@@ -50,5 +50,8 @@
       "text-summary"
     ]
   },
+  "files": [
+    "index.js"
+  ],
   "types": "index.d.ts"
 }
