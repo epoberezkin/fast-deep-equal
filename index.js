@@ -2,6 +2,7 @@
 
 var isArray = Array.isArray;
 var keyList = Object.keys;
+var hasProp = Object.prototype.hasOwnProperty;
 
 module.exports = function equal(a, b) {
   if (a === b) return true;
@@ -38,7 +39,7 @@ module.exports = function equal(a, b) {
     length = keys.length;
 
     for (i = 0; i < length; i++)
-      if (!(keys[i] in b)) return false;
+      if (!hasProp.call(b, keys[i])) return false;
 
     for (i = 0; i < length; i++) {
       key = keys[i];
