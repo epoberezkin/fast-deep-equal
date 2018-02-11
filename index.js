@@ -26,12 +26,11 @@ module.exports = function equal(a, b) {
   var dateA = a instanceof Date
     , dateB = b instanceof Date;
   if (dateA != dateB) return false;
+  if (dateA && dateB) return a.getTime() == b.getTime();
 
   var regexpA = a instanceof RegExp
     , regexpB = b instanceof RegExp;
   if (regexpA != regexpB) return false;
-
-  if (dateA && dateB) return a.getTime() == b.getTime();
   if (regexpA && regexpB) return a.toString() == b.toString();
 
   if (a instanceof Object && b instanceof Object) {
