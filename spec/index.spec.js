@@ -1,6 +1,6 @@
 'use strict';
 
-var equal = require('../index-2');
+var equal = require('../index');
 var tests = require('./tests');
 var assert = require('assert');
 
