@@ -40,12 +40,15 @@ module.exports = function equal(a, b) {
     for (i = 0; i < length; i++)
       if (!hasProp.call(b, keys[i])) return false;
 
+    if (length !== keyList(b).length)
+      return false;
+
     for (i = 0; i < length; i++) {
       key = keys[i];
       if (!equal(a[key], b[key])) return false;
     }
 
-    return length == keyList(b).length;
+    return true;
   }
 
   return false;
