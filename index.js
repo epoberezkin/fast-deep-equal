@@ -37,11 +37,11 @@ module.exports = function equal(a, b) {
     var keys = keyList(a);
     length = keys.length;
 
-    for (i = 0; i < length; i++)
-      if (!hasProp.call(b, keys[i])) return false;
-
     if (length !== keyList(b).length)
       return false;
+
+    for (i = 0; i < length; i++)
+      if (!hasProp.call(b, keys[i])) return false;
 
     for (i = 0; i < length; i++) {
       key = keys[i];
