@@ -7,6 +7,7 @@
     "eslint": "eslint *.js benchmark spec",
     "test-spec": "mocha spec/*.spec.js -R spec",
     "test-cov": "nyc npm run test-spec",
+    "test-ts": "tsc --target ES5 --noImplicitAny index.d.ts",
     "test": "npm run eslint && npm run test-cov"
   },
   "repository": {
@@ -36,6 +37,7 @@
     "nyc": "^11.0.2",
     "pre-commit": "^1.2.2",
     "shallow-equal-fuzzy": "0.0.2",
+    "typescript": "^2.6.1",
     "underscore": "^1.8.3"
   },
   "nyc": {
@@ -49,6 +51,8 @@
     ]
   },
   "files": [
-    "index.js"
-  ]
+    "index.js",
+    "index.d.ts"
+  ],
+  "types": "index.d.ts"
 }
