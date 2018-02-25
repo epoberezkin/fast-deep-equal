@@ -8,7 +8,7 @@
     "test-spec": "mocha spec/*.spec.js -R spec",
     "test-cov": "nyc npm run test-spec",
     "test-ts": "tsc --target ES5 --noImplicitAny index.d.ts",
-    "test": "npm run eslint && npm run test-cov"
+    "test": "npm run eslint && npm run test-ts && npm run test-cov"
   },
   "repository": {
     "type": "git",
