@@ -5,7 +5,7 @@ var tests = require('./tests');
 var assert = require('assert');
 
 
-describe('equal', function() {
+describe('basics', function() {
   tests.forEach(function (suite) {
     describe(suite.description, function() {
       suite.tests.forEach(function (test) {

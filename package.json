@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "eslint": "eslint *.js benchmark spec",
+    "test-spec-watch": "mocha spec/*.spec.js -R spec --watch",
     "test-spec": "mocha spec/*.spec.js -R spec",
     "test-cov": "nyc npm run test-spec",
     "test-ts": "tsc --target ES5 --noImplicitAny index.d.ts",
@@ -35,8 +36,10 @@
     "mocha": "^3.4.2",
     "nano-equal": "^1.0.1",
     "nyc": "^11.0.2",
-    "pre-commit": "^1.2.2",
+    "react": "^16.3.1",
+    "react-test-renderer": "^16.3.1",
     "shallow-equal-fuzzy": "0.0.2",
+    "sinon": "^4.5.0",
     "typescript": "^2.6.1",
     "underscore": "^1.8.3"
   },
