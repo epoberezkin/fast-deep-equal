@@ -4,7 +4,7 @@ var isArray = Array.isArray;
 var keyList = Object.keys;
 var hasProp = Object.prototype.hasOwnProperty;
 
-module.exports = function equal(a, b) {
+function equal(a, b) {
   if (a === b) return true;
 
   var arrA = isArray(a)
@@ -45,11 +45,36 @@ module.exports = function equal(a, b) {
 
     for (i = 0; i < length; i++) {
       key = keys[i];
-      if (!equal(a[key], b[key])) return false;
+      if (key === '_owner' && a[key]) {
+        // React-specific.
+        // avoid traversing circular reference for React elements with non-null _owner
+        if (a[key] !== b[key]) return false;
+      } else {
+        // all other properties should be traversed as usual
+        if (!equal(a[key], b[key])) return false;
+      }
     }
 
     return true;
   }
 
   return false;
+}
+
+module.exports = function exportedEqual(a, b) {
+  try {
+    return equal(a, b);
+  } catch (error) {
+    if (error.message && error.message.match(/stack|recursion/i)) {
+      // warn on circular references, don't crash
+      // browsers give this different errors name and messages:
+      // chrome/safari: "RangeError", "Maximum call stack size exceeded"
+      // firefox: "InternalError", too much recursion"
+      // edge: "Error", "Out of stack space"
+      console.warn('Warning: fast-deep-equal does not handle circular references.', error.name, error.message);
+      return false;
+    }
+    // some other error. we should definitely know about these
+    throw error;
+  }
 };
