@@ -1,12 +1,23 @@
 'use strict';
 
+var assert = require('assert');
+var sinon = require('sinon');
+
 var equal = require('../index');
 var tests = require('./tests');
-var assert = require('assert');
 
+describe('basics', function() {
+  let sandbox;
+  beforeEach(() => {
+    sandbox = sinon.sandbox.create();
+    sandbox.stub(console, 'warn');
+  });
 
-describe('equal', function() {
-  tests.forEach(function (suite) {
+  afterEach(() => {
+    sandbox.restore();
+  });
+
+  tests.all.forEach(function (suite) {
     describe(suite.description, function() {
       suite.tests.forEach(function (test) {
         it(test.description, function() {

@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = [
+const generic = [
   {
     description: 'scalars',
     tests: [
@@ -318,3 +318,53 @@ module.exports = [
     ]
   }
 ];
+
+const reactElementA = {
+  '$$typeof': 'react.element',
+  type: 'div',
+  key: null,
+  ref: null,
+  props: {},
+  _owner: {},
+  _store: {}
+};
+// in reality the _owner object is much more complex (and contains over dozen circular references)
+reactElementA._owner.children = [reactElementA];
+
+const reactElementB = {
+  '$$typeof': 'react.element',
+  type: 'div',
+  key: null,
+  ref: null,
+  props: {},
+  _owner: {},
+  _store: {}
+};
+reactElementB._owner.children = [reactElementB];
+
+const react = [
+  {
+    description: 'React elements',
+    reactSpecific: true,
+    tests: [
+      {
+        description: 'circular reference compared with itself is equal',
+        value1: reactElementA,
+        value2: reactElementA,
+        equal: true
+      },
+      {
+        description: 'any other circular references are unequal',
+        value1: reactElementA,
+        value2: reactElementB,
+        equal: false
+      }
+    ]
+  }
+];
+
+module.exports = {
+  generic,
+  react,
+  all: [].concat(generic, react)
+};
