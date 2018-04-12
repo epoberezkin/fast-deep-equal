@@ -324,19 +324,30 @@ const reactElementA = {
   type: 'div',
   key: null,
   ref: null,
-  props: {},
+  props: { x: 1 },
   _owner: {},
   _store: {}
 };
 // in reality the _owner object is much more complex (and contains over dozen circular references)
 reactElementA._owner.children = [reactElementA];
 
+const reactElementA2 = {
+  '$$typeof': 'react.element',
+  type: 'div',
+  key: null,
+  ref: null,
+  props: { x: 1 },
+  _owner: {},
+  _store: {}
+};
+reactElementA2._owner.children = [reactElementA2];
+
 const reactElementB = {
   '$$typeof': 'react.element',
   type: 'div',
   key: null,
   ref: null,
-  props: {},
+  props: { x: 2 },
   _owner: {},
   _store: {}
 };
@@ -348,13 +359,19 @@ const react = [
     reactSpecific: true,
     tests: [
       {
-        description: 'circular reference compared with itself is equal',
+        description: 'an element compared with itself',
         value1: reactElementA,
         value2: reactElementA,
         equal: true
       },
       {
-        description: 'any other circular references are unequal',
+        description: 'two elements equal by value',
+        value1: reactElementA,
+        value2: reactElementA2,
+        equal: true
+      },
+      {
+        description: 'two elements unequal by value',
         value1: reactElementA,
         value2: reactElementB,
         equal: false
