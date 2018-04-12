@@ -4,6 +4,7 @@
   "description": "Fast deep equal",
   "main": "index.js",
   "scripts": {
+    "benchmark": "node benchmark",
     "eslint": "eslint *.js benchmark spec",
     "test-spec-watch": "mocha spec/*.spec.js -R spec --watch",
     "test-spec": "mocha spec/*.spec.js -R spec",
@@ -29,9 +30,8 @@
   "devDependencies": {
     "benchmark": "^2.1.4",
     "coveralls": "^2.13.1",
-    "deep-eql": "^2.0.2",
-    "deep-equal": "^1.0.1",
     "eslint": "^4.0.0",
+    "fast-deep-equal": "^1.1.0",
     "lodash": "^4.17.4",
     "mocha": "^3.4.2",
     "nano-equal": "^1.0.1",
@@ -40,8 +40,7 @@
     "react-test-renderer": "^16.3.1",
     "shallow-equal-fuzzy": "0.0.2",
     "sinon": "^4.5.0",
-    "typescript": "^2.6.1",
-    "underscore": "^1.8.3"
+    "typescript": "^2.6.1"
   },
   "nyc": {
     "exclude": [

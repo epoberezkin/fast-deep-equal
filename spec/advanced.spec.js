@@ -62,7 +62,7 @@ describe('advanced', () => {
     });
     describe('basics usage', () => {
       it('never warns', () => {
-        tests.forEach( (suite) => {
+        tests.generic.forEach( (suite) => {
           suite.tests.forEach( (test) => {
             assert.strictEqual(equal(test.value1, test.value2), test.equal);
           });
