@@ -5,12 +5,11 @@
   "main": "index.js",
   "scripts": {
     "benchmark": "node benchmark",
-    "eslint": "eslint *.js benchmark spec",
-    "test-spec-watch": "mocha spec/*.spec.js -R spec --watch",
-    "test-spec": "mocha spec/*.spec.js -R spec",
-    "test-cov": "nyc npm run test-spec",
+    "eslint": "eslint \"*.js\" benchmark spec",
+    "test-node": "mocha \"spec/*.spec.js\" -R spec",
+    "test-node-cov": "nyc npm run test-node",
     "test-ts": "tsc --target ES5 --noImplicitAny index.d.ts",
-    "test": "npm run eslint && npm run test-ts && npm run test-cov"
+    "test": "builder concurrent --buffer eslint test-ts test-node-cov"
   },
   "repository": {
     "type": "git",
@@ -32,9 +31,12 @@
   "homepage": "https://github.com/FormidableLabs/react-fast-compare",
   "devDependencies": {
     "benchmark": "^2.1.4",
+    "builder": "^4.0.0",
     "coveralls": "^2.13.1",
     "eslint": "^4.0.0",
     "fast-deep-equal": "^1.1.0",
+    "karma": "^2.0.0",
+    "karma-chrome-launcher": "^2.2.0",
     "lodash": "^4.17.4",
     "mocha": "^3.4.2",
     "nano-equal": "^1.0.1",
