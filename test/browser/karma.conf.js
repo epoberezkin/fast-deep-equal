@@ -1,26 +1,27 @@
 'use strict';
 
-// TODO const path = require('path');
+const path = require('path');
+const CORE_JS_ROOT = path.dirname(require.resolve('core-js/package.json'));
 
 module.exports = function(config) {
   config.set({
-    basePath: '',
+    basePath: '../..',
     frameworks: ['mocha'],
     files: [
-      '**/*.spec.js'
+      // Polyfills for IE9 in React 16.
+      require.resolve('core-js/es6/map'),
+      require.resolve('core-js/es6/set'),
+      // Tests
+      'test/browser/**/*.spec.js'
     ],
-    // files: [
-    //   // Polyfills for IE9 in React 16.
-    //   require.resolve('core-js/es6/map'),
-    //   require.resolve('core-js/es6/set'),
-    // ],
-    // preprocessors: {
-    //   [path.join(
-    //     path.dirname(require.resolve('core-js/package.json')),
-    //     'es6/**/*.js' // eslint-disable-line prettier/prettier
-    //   )]: ['webpack'],
-    //   'src/__tests__/**/*.js': ['webpack']
-    // },
+    preprocessors: {
+      [path.join(CORE_JS_ROOT, 'es6/**/*.js')]: ['webpack'],
+      'test/**/*.js': ['webpack']
+    },
+    webpack: {
+      mode: "development",
+      devtool: false
+    },
     // webpack: {
     //   cache: true,
     //   module: {
@@ -91,7 +92,7 @@ module.exports = function(config) {
       //'karma-coverage',
       'karma-mocha',
       'karma-mocha-reporter',
-      //'karma-webpack'
+      'karma-webpack'
     ],
     coverageReporter: {
       type: 'text'
