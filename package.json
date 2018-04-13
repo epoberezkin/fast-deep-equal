@@ -10,7 +10,8 @@
     "test-node": "mocha \"test/node/*.spec.js\"",
     "test-node-cov": "nyc npm run test-node",
     "test-ts": "tsc --target ES5 --noImplicitAny index.d.ts",
-    "test": "builder concurrent --buffer eslint test-ts test-node-cov test-browser"
+    "test": "builder concurrent --buffer eslint test-ts test-node-cov test-browser",
+    "test-ie": "builder concurrent --buffer eslint test-ts test-node-cov"
   },
   "repository": {
     "type": "git",

@@ -1,9 +1,10 @@
 # react-fast-compare
 
-The fastest deep equal comparison for React, perfect for `shouldComponentUpdate`, also really fast at general-purpose deep comparison. This is a fork of the brilliant [fast-deep-equal](https://github.com/epoberezkin/fast-deep-equal) with some extra handling for React. 
+The fastest deep equal comparison for React, perfect for `shouldComponentUpdate`, also really fast at general-purpose deep comparison. This is a fork of the brilliant [fast-deep-equal](https://github.com/epoberezkin/fast-deep-equal) with some extra handling for React.
 
-[![Build Status](https://travis-ci.org/FormidableLabs/react-fast-compare.svg?branch=master)](https://travis-ci.org/FormidableLabs/react-fast-compare)
-[![npm version](https://badge.fury.io/js/react-fast-compare.svg)](http://badge.fury.io/js/react-fast-compare)
+[![Travis Status][trav_img]][trav_site]
+[![AppVeyor Status][appveyor_img]][appveyor_site]
+[![npm version][npm_img]][npm_site]
 
 <img src="https://i.imgur.com/KLUWQla.png" alt="chart" width="550"/>
 
@@ -88,3 +89,12 @@ yarn run benchmark
 ## License
 
 [MIT](https://github.com/FormidableLabs/react-fast-compare/blob/readme/LICENSE)
+
+[trav_img]: https://api.travis-ci.org/FormidableLabs/react-fast-compare.svg
+[trav_site]: https://travis-ci.org/FormidableLabs/react-fast-compare
+[cov_img]: https://img.shields.io/coveralls/FormidableLabs/react-fast-compare.svg
+[cov_site]: https://coveralls.io/r/FormidableLabs/react-fast-compare
+[npm_img]: https://badge.fury.io/js/react-fast-compare.svg
+[npm_site]: http://badge.fury.io/js/react-fast-compare
+[appveyor_img]: https://ci.appveyor.com/api/projects/status/github/formidablelabs/react-fast-compare?branch=master&svg=true
+[appveyor_site]: https://ci.appveyor.com/project/FormidableLabs/react-fast-compare
