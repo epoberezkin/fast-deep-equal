@@ -11,6 +11,9 @@ branches:
   only:
     - master
 
+addons:
+  chrome: stable
+
 before_install:
   # GUI for real browsers.
   - export DISPLAY=:99.0
