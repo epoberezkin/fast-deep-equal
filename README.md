@@ -2,7 +2,7 @@
 
 The fastest deep equal comparison for React, perfect for `shouldComponentUpdate`, also really fast at general-purpose deep comparison. This is a fork of the brilliant [fast-deep-equal](https://github.com/epoberezkin/fast-deep-equal) with some extra handling for React. 
 
-[![Build Status](https://travis-ci.org/FormidableLabs/fast-deep-equal.svg?branch=master)](https://travis-ci.org/FormidableLabs/fast-deep-equal)
+[![Build Status](https://travis-ci.org/FormidableLabs/react-fast-compare.svg?branch=master)](https://travis-ci.org/FormidableLabs/react-fast-compare)
 [![npm version](https://badge.fury.io/js/react-fast-compare.svg)](http://badge.fury.io/js/react-fast-compare)
 
 <img src="https://i.imgur.com/KLUWQla.png" alt="chart" width="550"/>
