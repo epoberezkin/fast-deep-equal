@@ -1,5 +1,3 @@
-rules:
-  no-console: 0
-globals:
-  describe: false
-  it: false
+env:
+  es6: true
+  mocha: true

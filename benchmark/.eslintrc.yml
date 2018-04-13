@@ -1,5 +1,5 @@
-parserOptions:
-  ecmaVersion: 2016
+env:
+  es6: true
 rules:
   no-invalid-this: 0
   no-console: 0

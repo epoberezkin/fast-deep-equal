@@ -3,9 +3,10 @@
 var isArray = Array.isArray;
 var keyList = Object.keys;
 var hasProp = Object.prototype.hasOwnProperty;
+var is = Object.is;
 
 function equal(a, b) {
-  if (a === b) return true;
+  if (is(a, b)) return true;
 
   var arrA = isArray(a)
     , arrB = isArray(b)
