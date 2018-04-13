@@ -9,10 +9,12 @@ const allSuite = new Benchmark.Suite;
 
 const equalPackages = {
   'react-fast-compare': require('../index'),
-  'fast-deep-equal': require('fast-deep-equal'),
-  'lodash.isEqual': require('lodash').isEqual,
-  'nano-equal': require('nano-equal'),
-  'shallow-equal-fuzzy': require('shallow-equal-fuzzy')
+  'react-fast-compare-object-is': require('../object-is'),
+  'react-fast-compare-object-is-polyfill': require('../object-is-polyfill'),
+  // 'fast-deep-equal': require('fast-deep-equal'),
+  // 'lodash.isEqual': require('lodash').isEqual,
+  // 'nano-equal': require('nano-equal'),
+  // 'shallow-equal-fuzzy': require('shallow-equal-fuzzy')
 };
 
 for (const equalName in equalPackages) {
