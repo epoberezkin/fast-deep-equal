@@ -30,3 +30,8 @@ script:
 
 after_script:
   - coveralls < coverage/lcov.info
+
+cache:
+  yarn: true
+  directories:
+    - node_modules
