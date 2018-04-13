@@ -6,6 +6,9 @@ module.exports = function(config) {
   config.set({
     basePath: '',
     frameworks: ['mocha'],
+    files: [
+      '**/*.spec.js'
+    ],
     // files: [
     //   // Polyfills for IE9 in React 16.
     //   require.resolve('core-js/es6/map'),
