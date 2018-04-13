@@ -11,66 +11,30 @@ module.exports = function(config) {
       // Polyfills for IE9 in React 16.
       require.resolve('core-js/es6/map'),
       require.resolve('core-js/es6/set'),
-      // Tests
-      'test/browser/**/*.spec.js'
+      // Re-use node tests.
+      'test/node/**/*.spec.js'
     ],
     preprocessors: {
       [path.join(CORE_JS_ROOT, 'es6/**/*.js')]: ['webpack'],
       'test/**/*.js': ['webpack']
     },
     webpack: {
-      mode: "development",
-      devtool: false
+      mode: 'development',
+      devtool: false,
+      module: {
+        rules: [
+          {
+            test: /\.js$/,
+            enforce: 'pre',
+            include: path.resolve(__dirname, '../node/'),
+            loader: 'babel-loader',
+            options: {
+              presets: ['babel-preset-env']
+            }
+          }
+        ]
+      }
     },
-    // webpack: {
-    //   cache: true,
-    //   module: {
-    //     rules: [
-    //       {
-    //         test: /\.js$/,
-    //         enforce: 'pre',
-    //         include: path.resolve('src/__tests__/'),
-    //         loader: 'babel-loader'
-    //       },
-    //       {
-    //         test: /\.js$/,
-    //         include: path.resolve('src/'),
-    //         enforce: 'pre',
-    //         exclude: /(__tests__|__mocks__)/,
-    //         loader: 'isparta-loader?babel-loader'
-    //       },
-    //       {
-    //         test: /\.js$/,
-    //         exclude: [/node_modules/],
-    //         loader: 'babel-loader'
-    //       },
-    //       {
-    //         test: /\.css$/,
-    //         loader: 'style-loader!css-loader'
-    //       }
-    //     ]
-    //   },
-    //   resolve: {
-    //     modules: [
-    //       path.join(__dirname, 'node_modules'),
-    //       path.join(__dirname, 'src')
-    //     ],
-    //     extensions: ['.js']
-    //   }
-    // },
-    // webpackServer: {
-    //   quiet: false,
-    //   noInfo: true,
-    //   stats: {
-    //     assets: false,
-    //     colors: true,
-    //     version: false,
-    //     hash: false,
-    //     timings: false,
-    //     chunks: false,
-    //     chunkModules: false
-    //   }
-    // },
     exclude: [],
     port: 8080,
     logLevel: config.LOG_INFO,

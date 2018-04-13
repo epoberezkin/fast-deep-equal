@@ -7,11 +7,12 @@
     "benchmark": "node benchmark",
     "eslint": "eslint \"*.js\" benchmark test",
     "test-browser": "karma start test/browser/karma.conf.js",
+    "test-browser-ie": "karma start test/browser/karma.conf.ie.js",
     "test-node": "mocha \"test/node/*.spec.js\"",
     "test-node-cov": "nyc npm run test-node",
     "test-ts": "tsc --target ES5 --noImplicitAny index.d.ts",
     "test": "builder concurrent --buffer eslint test-ts test-node-cov test-browser",
-    "test-ie": "builder concurrent --buffer eslint test-ts test-node-cov"
+    "test-ie": "builder concurrent --buffer eslint test-ts test-node-cov test-browser-ie"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,7 @@
   },
   "homepage": "https://github.com/FormidableLabs/react-fast-compare",
   "devDependencies": {
+    "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1",
     "benchmark": "^2.1.4",
@@ -42,6 +44,7 @@
     "fast-deep-equal": "^1.1.0",
     "karma": "^2.0.0",
     "karma-chrome-launcher": "^2.2.0",
+    "karma-ie-launcher": "^1.0.0",
     "karma-mocha": "^1.3.0",
     "karma-mocha-reporter": "^2.2.5",
     "karma-webpack": "^3.0.0",
