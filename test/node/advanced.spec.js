@@ -5,7 +5,7 @@ const sinon = require('sinon');
 const React = require('react');
 const ReactTestRenderer = require('react-test-renderer');
 
-const equal = require('../index');
+const equal = require('../..');
 const tests = require('./tests');
 
 class ChildWithShouldComponentUpdate extends React.Component {

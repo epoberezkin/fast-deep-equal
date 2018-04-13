@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "benchmark": "node benchmark",
-    "eslint": "eslint \"*.js\" benchmark spec",
-    "test-node": "mocha \"spec/*.spec.js\" -R spec",
+    "eslint": "eslint \"*.js\" benchmark test",
+    "test-node": "mocha \"test/node/*.spec.js\"",
     "test-node-cov": "nyc npm run test-node",
     "test-ts": "tsc --target ES5 --noImplicitAny index.d.ts",
     "test": "builder concurrent --buffer eslint test-ts test-node-cov"
