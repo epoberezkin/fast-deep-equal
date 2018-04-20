@@ -17,7 +17,8 @@ const equalPackages = {
   'assert.deepStrictEqual': (a, b) => {
     try { assertDeepStrictEqual(a, b); return true; }
     catch(e) { return false; }
-  }
+  },
+  'ramda.equals': require('ramda').equals
 };
 
 
