@@ -16,7 +16,7 @@ module.exports = function equal(a, b) {
   if (arrA && arrB) {
     length = a.length;
     if (length != b.length) return false;
-    for (i = 0; i < length; i++)
+    for (i = length; i-- !== 0;)
       if (!equal(a[i], b[i])) return false;
     return true;
   }
@@ -40,10 +40,10 @@ module.exports = function equal(a, b) {
     if (length !== keyList(b).length)
       return false;
 
-    for (i = 0; i < length; i++)
+    for (i = length; i-- !== 0;)
       if (!hasProp.call(b, keys[i])) return false;
 
-    for (i = 0; i < length; i++) {
+    for (i = length; i-- !== 0;) {
       key = keys[i];
       if (!equal(a[key], b[key])) return false;
     }
