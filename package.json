@@ -36,6 +36,7 @@
     "nano-equal": "latest",
     "nyc": "^11.0.2",
     "pre-commit": "^1.2.2",
+    "ramda": "latest",
     "shallow-equal-fuzzy": "latest",
     "typescript": "^2.6.1",
     "underscore": "latest"
