@@ -28,17 +28,17 @@
   "devDependencies": {
     "benchmark": "^2.1.4",
     "coveralls": "^2.13.1",
-    "deep-eql": "^2.0.2",
-    "deep-equal": "^1.0.1",
+    "deep-eql": "latest",
+    "deep-equal": "latest",
     "eslint": "^4.0.0",
-    "lodash": "^4.17.4",
+    "lodash": "latest",
     "mocha": "^3.4.2",
-    "nano-equal": "^1.0.1",
+    "nano-equal": "latest",
     "nyc": "^11.0.2",
     "pre-commit": "^1.2.2",
-    "shallow-equal-fuzzy": "0.0.2",
+    "shallow-equal-fuzzy": "latest",
     "typescript": "^2.6.1",
-    "underscore": "^1.8.3"
+    "underscore": "latest"
   },
   "nyc": {
     "exclude": [

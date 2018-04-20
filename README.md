@@ -31,14 +31,14 @@ console.log(equal({foo: 'bar'}, {foo: 'bar'})); // true
 ## Performance benchmark
 
 ```
-fast-deep-equal x 82,915 ops/sec ±0.63% (89 runs sampled)
-nano-equal x 50,506 ops/sec ±2.23% (86 runs sampled)
-shallow-equal-fuzzy x 14,873 ops/sec ±3.19% (83 runs sampled)
-underscore.isEqual x 16,055 ops/sec ±2.29% (85 runs sampled)
-lodash.isEqual x 10,740 ops/sec ±1.04% (89 runs sampled)
-deep-equal x 12,276 ops/sec ±2.44% (84 runs sampled)
-deep-eql x 10,565 ops/sec ±0.89% (90 runs sampled)
-assert.deepStrictEqual x 965 ops/sec ±2.99% (81 runs sampled)
+fast-deep-equal x 217,587 ops/sec ±0.81% (85 runs sampled)
+nano-equal x 208,776 ops/sec ±0.84% (87 runs sampled)
+shallow-equal-fuzzy x 195,849 ops/sec ±1.59% (89 runs sampled)
+underscore.isEqual x 123,740 ops/sec ±1.34% (86 runs sampled)
+lodash.isEqual x 41,598 ops/sec ±2.64% (84 runs sampled)
+deep-equal x 47,966 ops/sec ±0.40% (89 runs sampled)
+deep-eql x 26,891 ops/sec ±0.80% (88 runs sampled)
+assert.deepStrictEqual x 1,652 ops/sec ±1.18% (88 runs sampled)
 The fastest is fast-deep-equal
 ```
 
