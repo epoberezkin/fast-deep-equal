@@ -81,6 +81,30 @@ module.exports = [
         value1: 0,
         value2: false,
         equal: false
+      },
+      {
+        description: 'NaN and NaN are equal',
+        value1: NaN,
+        value2: NaN,
+        equal: true
+      },
+      {
+        description: '0 and -0 are equal',
+        value1: 0,
+        value2: -0,
+        equal: true
+      },
+      {
+        description: 'Infinity and Infinity are equal',
+        value1: Infinity,
+        value2: Infinity,
+        equal: true
+      },
+      {
+        description: 'Infinity and -Infinity are not equal',
+        value1: Infinity,
+        value2: -Infinity,
+        equal: false
       }
     ]
   },
