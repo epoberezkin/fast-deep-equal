@@ -14,24 +14,24 @@ module.exports = function equal(a, b) {
       , length
       , key;
 
-  if (arrA ^ arrB) return false;
-  if (arrA && arrB) {
-    length = a.length;
-    if (length ^ b.length) return false;
-    for (i = length; i--;)
-      if (!equal(a[i], b[i])) return false;
-    return true;
-  }
+    if (arrA ^ arrB) return false;
+    if (arrA && arrB) {
+      length = a.length;
+      if (length ^ b.length) return false;
+      for (i = length; i--;)
+        if (!equal(a[i], b[i])) return false;
+      return true;
+    }
 
-  var dateA = a instanceof Date
-    , dateB = b instanceof Date;
-  if (dateA ^ dateB) return false;
-  if (dateA && dateB) return !(a.getTime() ^ b.getTime());
+    var dateA = a instanceof Date
+      , dateB = b instanceof Date;
+    if (dateA ^ dateB) return false;
+    if (dateA && dateB) return !(a.getTime() ^ b.getTime());
 
-  var regexpA = a instanceof RegExp
-    , regexpB = b instanceof RegExp;
-  if (regexpA ^ regexpB) return false;
-  if (regexpA && regexpB) return a.toString() === b.toString();
+    var regexpA = a instanceof RegExp
+      , regexpB = b instanceof RegExp;
+    if (regexpA ^ regexpB) return false;
+    if (regexpA && regexpB) return a.toString() == b.toString();
 
     var keys = keyList(a);
     length = keys.length;
