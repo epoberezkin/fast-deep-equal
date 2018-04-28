@@ -5,7 +5,7 @@ var keyList = Object.keys;
 var hasProp = Object.prototype.hasOwnProperty;
 
 module.exports = function equal(a, b) {
-  if (a === b || (a !== a && b !== b)) return true;
+  if (a === b) return true;
 
   var arrA = isArray(a)
     , arrB = isArray(b)
@@ -51,5 +51,5 @@ module.exports = function equal(a, b) {
     return true;
   }
 
-  return false;
+  return a!==a && b!==b;
 };
