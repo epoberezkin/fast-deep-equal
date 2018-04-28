@@ -18,7 +18,7 @@ module.exports = function equal(a, b) {
   if (arrA && arrB) {
     length = a.length;
     if (length ^ b.length) return false;
-    for (i = length; i-- ^ 0;)
+    for (i = length; i--;)
       if (!equal(a[i], b[i])) return false;
     return true;
   }
@@ -31,16 +31,16 @@ module.exports = function equal(a, b) {
   var regexpA = a instanceof RegExp
     , regexpB = b instanceof RegExp;
   if (regexpA ^ regexpB) return false;
-  if (regexpA && regexpB) return a.toString() == b.toString();
+  if (regexpA && regexpB) return a.toString() === b.toString();
 
     var keys = keyList(a);
     length = keys.length;
 
     if (length ^ keyList(b).length) return false;
 
-    for (i = length; i-- ^ 0;) if (!hasProp.call(b, keys[i])) return false;
+    for (i = length; i--;) if (!hasProp.call(b, keys[i])) return false;
 
-    for (i = length; i-- ^ 0;) {
+    for (i = length; i--;) {
       key = keys[i];
       if (!equal(a[key], b[key])) return false;
     }
