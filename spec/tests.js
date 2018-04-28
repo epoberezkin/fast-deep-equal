@@ -189,6 +189,30 @@ module.exports = [
         value1: {foo: undefined},
         value2: {bar: undefined},
         equal: false
+      },
+      {
+        description: 'nulls are equal',
+        value1: null,
+        value2: null,
+        equal: true
+      },
+      {
+        description: 'null and undefined are not equal',
+        value1: null,
+        value2: undefined,
+        equal: false
+      },
+      {
+        description: 'null and empty object are not equal',
+        value1: null,
+        value2: {},
+        equal: false
+      },
+      {
+        description: 'undefined and empty object are not equal',
+        value1: undefined,
+        value2: {},
+        equal: false
       }
     ]
   },
