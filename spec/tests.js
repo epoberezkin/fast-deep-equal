@@ -305,6 +305,23 @@ module.exports = [
     ]
   },
   {
+    description: 'functions',
+    tests: [
+      {
+        description: 'any two functions are equal',
+        value1: function(){},
+        value2: function(value){ return value; },
+        equal: true
+      },
+      {
+        description: 'functions are equal to empty objects',
+        value1: function(){},
+        value2: {},
+        equal: true
+      }
+    ],
+  },
+  {
     description: 'sample objects',
     tests: [
       {
