@@ -7,7 +7,8 @@ const suite = new Benchmark.Suite;
 
 
 const equalPackages = {
-  'fast-deep-equal': require('../index'),
+  'fast-deep-equal': require('..'),
+  'fast-deep-equal/es6': require('../es6'),
   'nano-equal': true,
   'shallow-equal-fuzzy': true,
   'underscore.isEqual': require('underscore').isEqual,

@@ -33,16 +33,17 @@ console.log(equal({foo: 'bar'}, {foo: 'bar'})); // true
 Node.js v12.6.0:
 
 ```
-fast-deep-equal x 329,192 ops/sec ±0.69% (88 runs sampled)
-nano-equal x 237,806 ops/sec ±0.65% (88 runs sampled)
-shallow-equal-fuzzy x 166,873 ops/sec ±0.67% (87 runs sampled)
-underscore.isEqual x 92,258 ops/sec ±0.64% (87 runs sampled)
-deep-equal x 73,243 ops/sec ±0.76% (85 runs sampled)
-lodash.isEqual x 48,218 ops/sec ±0.71% (87 runs sampled)
-deep-eql x 43,685 ops/sec ±0.65% (86 runs sampled)
-ramda.equals x 15,343 ops/sec ±0.61% (88 runs sampled)
-util.isDeepStrictEqual x 59,709 ops/sec ±0.54% (87 runs sampled)
-assert.deepStrictEqual x 587 ops/sec ±0.54% (85 runs sampled)
+fast-deep-equal x 325,485 ops/sec ±0.57% (86 runs sampled)
+fast-deep-equal/es6 x 261,338 ops/sec ±0.45% (89 runs sampled)
+nano-equal x 231,064 ops/sec ±0.62% (88 runs sampled)
+shallow-equal-fuzzy x 164,828 ops/sec ±0.87% (88 runs sampled)
+underscore.isEqual x 91,247 ops/sec ±0.56% (88 runs sampled)
+lodash.isEqual x 48,000 ops/sec ±0.48% (86 runs sampled)
+deep-equal x 73,699 ops/sec ±0.55% (86 runs sampled)
+deep-eql x 42,804 ops/sec ±0.45% (87 runs sampled)
+ramda.equals x 15,119 ops/sec ±0.49% (87 runs sampled)
+util.isDeepStrictEqual x 58,458 ops/sec ±0.56% (89 runs sampled)
+assert.deepStrictEqual x 583 ops/sec ±0.47% (87 runs sampled)
 
 The fastest is fast-deep-equal
 ```
