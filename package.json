@@ -56,7 +56,8 @@
   },
   "files": [
     "index.js",
-    "index.d.ts"
+    "index.d.ts",
+    "es6/"
   ],
   "types": "index.d.ts"
 }
