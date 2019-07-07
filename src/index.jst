@@ -36,6 +36,16 @@ module.exports = function equal(a, b) {
 
       return true;
     }
+
+    if (a instanceof Set) {
+      if (a.size !== b.size) return false;
+
+      keys = getKeys(a);
+      for (i = a.size; i-- !== 0;)
+        if (!b.has(keys[i])) return false;
+
+      return true;
+    }
 {{?}}
 
     keys = Object.keys(a);
@@ -60,7 +70,7 @@ module.exports = function equal(a, b) {
 {{? it.es6 }}
 function getKeys(a) {
   var keys = [];
-  for (var key of a.keys()) keys.push(key);
+  for (var [key] of a.entries()) keys.push(key);
   return keys;
 }
 {{?}}

@@ -23,3 +23,4 @@ rules:
   no-use-before-define: [ 2, nofunc ]
   callback-return: 2
   no-path-concat: 2
+  no-empty: 0
