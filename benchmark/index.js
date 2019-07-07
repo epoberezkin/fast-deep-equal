@@ -14,11 +14,12 @@ const equalPackages = {
   'lodash.isEqual': require('lodash').isEqual,
   'deep-equal': true,
   'deep-eql': true,
+  'ramda.equals': require('ramda').equals,
+  'util.isDeepStrictEqual': require('util').isDeepStrictEqual,
   'assert.deepStrictEqual': (a, b) => {
     try { assertDeepStrictEqual(a, b); return true; }
     catch(e) { return false; }
-  },
-  'ramda.equals': require('ramda').equals
+  }
 };
 
 
