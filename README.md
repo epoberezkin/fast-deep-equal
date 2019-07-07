@@ -6,6 +6,11 @@ The fastest deep equal
 [![Coverage Status](https://coveralls.io/repos/github/epoberezkin/fast-deep-equal/badge.svg?branch=master)](https://coveralls.io/github/epoberezkin/fast-deep-equal?branch=master)
 
 
+This readme is for pre-release v3 with ES6 Map, Set and Typed arrays support.
+
+See branch [v2](https://github.com/epoberezkin/fast-deep-equal/tree/v2) for the main version.
+
+
 ## Install
 
 ```bash
