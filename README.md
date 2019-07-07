@@ -16,8 +16,13 @@ npm install fast-deep-equal
 ## Features
 
 - ES5 compatible
-- works in node.js (0.10+) and browsers (IE9+)
+- works in node.js (8+) and browsers (IE9+)
 - checks equality of Date and RegExp objects by value.
+
+ES6 equal (`require('fast-deep-equal/es6')`) also supports:
+- Maps
+- Sets
+- Typed arrays
 
 
 ## Usage
@@ -25,6 +30,13 @@ npm install fast-deep-equal
 ```javascript
 var equal = require('fast-deep-equal');
 console.log(equal({foo: 'bar'}, {foo: 'bar'})); // true
+```
+
+To support ES6 Maps, Sets and Typed arrays equality use:
+
+```javascript
+var equal = require('fast-deep-equal/es6');
+console.log(equal(Int16Array([1, 2]), Int16Array([1, 2]))); // true
 ```
 
 
@@ -52,6 +64,7 @@ To run benchmark (requires node.js 6+):
 
 ```bash
 npm install
+npm run build
 node benchmark
 ```
 
