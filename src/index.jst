@@ -2,10 +2,23 @@
 
 // do not edit .js files directly - edit src/index.jst
 
+{{? it.es6 && it.cycles }}
+module.exports = function equalCycles(a, b) {
+  var compared = new Map;
+  return equal(a, b);
+
+  function equal(a, b) {
+{{??}}
 module.exports = function equal(a, b) {
+{{?}}
   if (a === b) return true;
 
   if (a && b && typeof a == 'object' && typeof b == 'object') {
+{{? it.es6 && it.cycles }}
+    if (compared.has(a) && compared.get(a) === b) return true;
+    compared.set(a, b);
+{{?}}
+
     if (a.constructor !== b.constructor) return false;
 
     var length, i, key, keys;
@@ -85,6 +98,9 @@ module.exports = function equal(a, b) {
 
   // true if both NaN, false otherwise
   return a!==a && b!==b;
+{{? it.cycles }}
+}
+{{?}}
 };
 
 {{? it.es6 }}
