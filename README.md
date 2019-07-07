@@ -30,18 +30,19 @@ console.log(equal({foo: 'bar'}, {foo: 'bar'})); // true
 
 ## Performance benchmark
 
-Node.js v9.11.1:
+Node.js v12.6.0:
 
 ```
-fast-deep-equal x 226,960 ops/sec ±1.55% (86 runs sampled)
-nano-equal x 218,210 ops/sec ±0.79% (89 runs sampled)
-shallow-equal-fuzzy x 206,762 ops/sec ±0.84% (88 runs sampled)
-underscore.isEqual x 128,668 ops/sec ±0.75% (91 runs sampled)
-lodash.isEqual x 44,895 ops/sec ±0.67% (85 runs sampled)
-deep-equal x 51,616 ops/sec ±0.96% (90 runs sampled)
-deep-eql x 28,218 ops/sec ±0.42% (85 runs sampled)
-assert.deepStrictEqual x 1,777 ops/sec ±1.05% (86 runs sampled)
-ramda.equals x 13,466 ops/sec ±0.82% (86 runs sampled)
+fast-deep-equal x 327,560 ops/sec ±0.53% (86 runs sampled)
+nano-equal x 232,335 ops/sec ±0.74% (87 runs sampled)
+shallow-equal-fuzzy x 163,586 ops/sec ±0.61% (86 runs sampled)
+underscore.isEqual x 86,656 ops/sec ±0.58% (90 runs sampled)
+lodash.isEqual x 48,047 ops/sec ±0.66% (88 runs sampled)
+deep-equal x 73,317 ops/sec ±0.56% (87 runs sampled)
+deep-eql x 42,667 ops/sec ±0.72% (88 runs sampled)
+assert.deepStrictEqual x 581 ops/sec ±0.67% (84 runs sampled)
+ramda.equals x 14,915 ops/sec ±0.74% (89 runs sampled)
+
 The fastest is fast-deep-equal
 ```
 
