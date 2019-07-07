@@ -62,3 +62,6 @@ yarn.lock
 .env
 
 .DS_Store
+
+# generated files
+index.js
