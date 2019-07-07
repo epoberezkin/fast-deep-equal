@@ -7,18 +7,20 @@ const suite = new Benchmark.Suite;
 
 
 const equalPackages = {
-  'fast-deep-equal': require('../index'),
+  'fast-deep-equal': require('..'),
+  'fast-deep-equal/es6': require('../es6'),
   'nano-equal': true,
   'shallow-equal-fuzzy': true,
   'underscore.isEqual': require('underscore').isEqual,
   'lodash.isEqual': require('lodash').isEqual,
   'deep-equal': true,
   'deep-eql': true,
+  'ramda.equals': require('ramda').equals,
+  'util.isDeepStrictEqual': require('util').isDeepStrictEqual,
   'assert.deepStrictEqual': (a, b) => {
     try { assertDeepStrictEqual(a, b); return true; }
     catch(e) { return false; }
-  },
-  'ramda.equals': require('ramda').equals
+  }
 };
 
 

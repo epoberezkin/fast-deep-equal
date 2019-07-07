@@ -6,6 +6,11 @@ The fastest deep equal
 [![Coverage Status](https://coveralls.io/repos/github/epoberezkin/fast-deep-equal/badge.svg?branch=master)](https://coveralls.io/github/epoberezkin/fast-deep-equal?branch=master)
 
 
+This readme is for pre-release v3 with ES6 Map, Set and Typed arrays support.
+
+See branch [v2](https://github.com/epoberezkin/fast-deep-equal/tree/v2) for the main version.
+
+
 ## Install
 
 ```bash
@@ -16,8 +21,13 @@ npm install fast-deep-equal
 ## Features
 
 - ES5 compatible
-- works in node.js (0.10+) and browsers (IE9+)
+- works in node.js (8+) and browsers (IE9+)
 - checks equality of Date and RegExp objects by value.
+
+ES6 equal (`require('fast-deep-equal/es6')`) also supports:
+- Maps
+- Sets
+- Typed arrays
 
 
 ## Usage
@@ -27,21 +37,31 @@ var equal = require('fast-deep-equal');
 console.log(equal({foo: 'bar'}, {foo: 'bar'})); // true
 ```
 
+To support ES6 Maps, Sets and Typed arrays equality use:
+
+```javascript
+var equal = require('fast-deep-equal/es6');
+console.log(equal(Int16Array([1, 2]), Int16Array([1, 2]))); // true
+```
+
 
 ## Performance benchmark
 
-Node.js v9.11.1:
+Node.js v12.6.0:
 
 ```
-fast-deep-equal x 226,960 ops/sec ±1.55% (86 runs sampled)
-nano-equal x 218,210 ops/sec ±0.79% (89 runs sampled)
-shallow-equal-fuzzy x 206,762 ops/sec ±0.84% (88 runs sampled)
-underscore.isEqual x 128,668 ops/sec ±0.75% (91 runs sampled)
-lodash.isEqual x 44,895 ops/sec ±0.67% (85 runs sampled)
-deep-equal x 51,616 ops/sec ±0.96% (90 runs sampled)
-deep-eql x 28,218 ops/sec ±0.42% (85 runs sampled)
-assert.deepStrictEqual x 1,777 ops/sec ±1.05% (86 runs sampled)
-ramda.equals x 13,466 ops/sec ±0.82% (86 runs sampled)
+fast-deep-equal x 325,485 ops/sec ±0.57% (86 runs sampled)
+fast-deep-equal/es6 x 261,338 ops/sec ±0.45% (89 runs sampled)
+nano-equal x 231,064 ops/sec ±0.62% (88 runs sampled)
+shallow-equal-fuzzy x 164,828 ops/sec ±0.87% (88 runs sampled)
+underscore.isEqual x 91,247 ops/sec ±0.56% (88 runs sampled)
+lodash.isEqual x 48,000 ops/sec ±0.48% (86 runs sampled)
+deep-equal x 73,699 ops/sec ±0.55% (86 runs sampled)
+deep-eql x 42,804 ops/sec ±0.45% (87 runs sampled)
+ramda.equals x 15,119 ops/sec ±0.49% (87 runs sampled)
+util.isDeepStrictEqual x 58,458 ops/sec ±0.56% (89 runs sampled)
+assert.deepStrictEqual x 583 ops/sec ±0.47% (87 runs sampled)
+
 The fastest is fast-deep-equal
 ```
 
@@ -49,6 +69,7 @@ To run benchmark (requires node.js 6+):
 
 ```bash
 npm install
+npm run build
 node benchmark
 ```
 

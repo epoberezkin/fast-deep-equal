@@ -137,9 +137,9 @@ module.exports = [
         equal: false
       },
       {
-        description: 'not equal objects (different properties)',
+        description: 'not equal objects (different property values)',
         value1: {a: 1, b: '2', c: 3},
-        value2: {a: 1, b: '2', d: 3},
+        value2: {a: 1, b: '2', c: 4},
         equal: false
       },
       {

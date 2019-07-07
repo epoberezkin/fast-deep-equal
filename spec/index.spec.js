@@ -1,18 +1,23 @@
 'use strict';
 
-var equal = require('../index');
-var tests = require('./tests');
+var equal = require('..');
+var es6equal = require('../es6');
 var assert = require('assert');
 
+testCases(equal, 'equal - standard tests', require('./tests'));
+testCases(es6equal, 'es6 equal - standard tests', require('./tests'));
+testCases(es6equal, 'es6 equal - es6 tests', require('./es6tests'));
 
-describe('equal', function() {
-  tests.forEach(function (suite) {
-    describe(suite.description, function() {
-      suite.tests.forEach(function (test) {
-        it(test.description, function() {
-          assert.strictEqual(equal(test.value1, test.value2), test.equal);
+function testCases(equalFunc, suiteName, suiteTests) {
+  describe(suiteName, function() {
+    suiteTests.forEach(function (suite) {
+      describe(suite.description, function() {
+        suite.tests.forEach(function (test) {
+          it(test.description, function() {
+            assert.strictEqual(equalFunc(test.value1, test.value2), test.equal);
+          });
         });
       });
     });
   });
-});
+}
