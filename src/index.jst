@@ -17,10 +17,6 @@ module.exports = function equal(a, b) {
       return true;
     }
 
-    if (a.constructor === RegExp) return a.source === b.source && a.flags === b.flags;
-    if (a.valueOf !== Object.prototype.valueOf) return a.valueOf() === b.valueOf();
-    if (a.toString !== Object.prototype.toString) return a.toString() === b.toString();
-
 {{? it.es6 }}
     if (a instanceof Map) {
       if (a.size !== b.size) return false;
@@ -46,7 +42,31 @@ module.exports = function equal(a, b) {
 
       return true;
     }
+
+    if (a.constructor.BYTES_PER_ELEMENT && (
+      a instanceof Int8Array ||
+      a instanceof Uint8Array ||
+      a instanceof Uint8ClampedArray ||
+      a instanceof Int16Array ||
+      a instanceof Uint16Array ||
+      a instanceof Int32Array ||
+      a instanceof Uint32Array ||
+      a instanceof Float32Array ||
+      a instanceof Float64Array ||
+      a instanceof BigInt64Array ||
+      a instanceof BigUint64Array
+    )) {
+      length = a.length;
+      if (length != b.length) return false;
+      for (i = length; i-- !== 0;)
+        if (a[i] !== b[i]) return false;
+      return true;
+    }
 {{?}}
+
+    if (a.constructor === RegExp) return a.source === b.source && a.flags === b.flags;
+    if (a.valueOf !== Object.prototype.valueOf) return a.valueOf() === b.valueOf();
+    if (a.toString !== Object.prototype.toString) return a.toString() === b.toString();
 
     keys = Object.keys(a);
     length = keys.length;
