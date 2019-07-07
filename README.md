@@ -13,6 +13,14 @@ See branch [v2](https://github.com/epoberezkin/fast-deep-equal/tree/v2) for the 
 
 ## Install
 
+To install v3 pre-release with ES6 Map, Set and Typed arrays support
+
+```bash
+npm install fast-deep-equal@beta
+```
+
+To install [v2](https://github.com/epoberezkin/fast-deep-equal/tree/v2)
+
 ```bash
 npm install fast-deep-equal
 ```
