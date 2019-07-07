@@ -1,6 +1,6 @@
 {
   "name": "fast-deep-equal",
-  "version": "3.0.0-beta.0",
+  "version": "3.0.0-beta.1",
   "description": "Fast deep equal",
   "main": "index.js",
   "scripts": {
