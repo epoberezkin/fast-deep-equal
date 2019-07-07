@@ -13,9 +13,10 @@ module.exports = function equal(a, b, compared) {
     if (a.constructor !== b.constructor) return false;
 
 {{? it.es6 && it.cycles }}
-    if (!compared) compared = new WeakMap();
-    if (compared.has(a)) return compared.get(a) === b;
-    compared.set(a, b);
+    if (!compared) compared = { a: new WeakMap(), b: new WeakMap() };
+    if (compared.a.has(a) && compared.b.has(b)) return true;
+    if (!compared.a.has(a)) compared.a.set(a, true);
+    if (!compared.b.has(b)) compared.b.set(b, true);
 {{?}}
 
     var length, i, keys;
