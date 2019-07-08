@@ -77,9 +77,7 @@ The fastest is fast-deep-equal
 To run benchmark (requires node.js 6+):
 
 ```bash
-npm install
-npm run build
-node benchmark
+npm run benchmark
 ```
 
 
