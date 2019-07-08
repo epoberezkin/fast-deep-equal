@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "devDependencies": {
+    "benchmark": "^2.1.4",
+    "deep-eql": "latest",
+    "deep-equal": "latest",
+    "lodash": "latest",
+    "nano-equal": "latest",
+    "ramda": "latest",
+    "shallow-equal-fuzzy": "latest",
+    "underscore": "latest"
+  }
+}

@@ -6,6 +6,7 @@
   "scripts": {
     "eslint": "eslint *.js benchmark spec",
     "build": "node build",
+    "benchmark": "npm i && npm run build && cd ./benchmark && npm i && node ./",
     "test-spec": "mocha spec/*.spec.js -R spec",
     "test-cov": "nyc npm run test-spec",
     "test-ts": "tsc --target ES5 --noImplicitAny index.d.ts",
@@ -28,21 +29,13 @@
   },
   "homepage": "https://github.com/epoberezkin/fast-deep-equal#readme",
   "devDependencies": {
-    "benchmark": "^2.1.4",
     "coveralls": "^2.13.1",
-    "deep-eql": "latest",
-    "deep-equal": "latest",
     "dot": "^1.1.2",
     "eslint": "^4.0.0",
-    "lodash": "latest",
     "mocha": "^3.4.2",
-    "nano-equal": "latest",
     "nyc": "^11.0.2",
     "pre-commit": "^1.2.2",
-    "ramda": "latest",
-    "shallow-equal-fuzzy": "latest",
-    "typescript": "^2.6.1",
-    "underscore": "latest"
+    "typescript": "^2.6.1"
   },
   "nyc": {
     "exclude": [
