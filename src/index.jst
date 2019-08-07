@@ -5,7 +5,10 @@
 module.exports = function equal(a, b) {
   if (a === b) return true;
 
-  if (a && b && typeof a == 'object' && typeof b == 'object') {
+  var aType = typeof a;
+  if (aType !== typeof b) return false;
+
+  if (a && b && aType == 'object') {
     if (a.constructor !== b.constructor) return false;
 
     var length, i, key, keys;
@@ -19,13 +22,15 @@ module.exports = function equal(a, b) {
 
 {{? it.es6 }}
     if (a instanceof Map) {
-      if (a.size !== b.size) return false;
+      var aSize = a.size
+
+      if (aSize !== b.size) return false;
 
       keys = getKeys(a);
-      for (i = a.size; i-- !== 0;)
+      for (i = aSize; i-- !== 0;)
         if (!b.has(keys[i])) return false;
 
-      for (i = a.size; i-- !== 0;) {
+      for (i = aSize; i-- !== 0;) {
         key = keys[i];
         if (!equal(a.get(key), b.get(key))) return false;
       }
@@ -34,10 +39,11 @@ module.exports = function equal(a, b) {
     }
 
     if (a instanceof Set) {
-      if (a.size !== b.size) return false;
+      var aSize = a.size;
+      if (aSize !== b.size) return false;
 
       keys = getKeys(a);
-      for (i = a.size; i-- !== 0;)
+      for (i = aSize; i-- !== 0;)
         if (!b.has(keys[i])) return false;
 
       return true;
