@@ -213,6 +213,12 @@ module.exports = [
         value1: undefined,
         value2: {},
         equal: false
+      },
+      {
+        description: 'objects with different `toString` functions returning same values are equal',
+        value1: {toString: ()=>'Hello world!'},
+        value2: {toString: ()=>'Hello world!'},
+        equal: true
       }
     ]
   },
