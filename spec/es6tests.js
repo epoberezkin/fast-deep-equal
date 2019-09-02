@@ -231,6 +231,12 @@ module.exports = [
         equal: true
       },
       {
+        description: 'equal BigUint64Array arrays',
+        value1: new BigUint64Array(['1', '2', '3']),
+        value2: new BigUint64Array(['1', '2', '3']),
+        equal: true
+      },
+      {
         description: 'not equal arrays (same items, different class)',
         value1: new Int32Array([1, 2, 3]),
         value2: new Int16Array([1, 2, 3]),
