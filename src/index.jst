@@ -3,19 +3,19 @@
 // do not edit .js files directly - edit src/index.jst
 
 {{? it.es6 }}
-var envHasBigInt64Array = typeof BigInt64Array !== 'undefined';
+  var envHasBigInt64Array = typeof BigInt64Array !== 'undefined';
 {{?}}
 
 module.exports = function equal(a, b) {
   if (a === b) return true;
 
-  if (a && b && typeof a ==='object' && typeof b ==='object') {
+  if (a && b && typeof a == 'object' && typeof b == 'object') {
     if (a.constructor !== b.constructor) return false;
 
     var length, i, keys;
     if (Array.isArray(a)) {
       length = a.length;
-      if (length !== b.length) return false;
+      if (length != b.length) return false;
       for (i = length; i-- !== 0;)
         if (!equal(a[i], b[i])) return false;
       return true;
@@ -54,7 +54,7 @@ module.exports = function equal(a, b) {
       (envHasBigInt64Array && (a instanceof BigInt64Array || a instanceof BigUint64Array))
     )) {
       length = a.length;
-      if (length !== b.length) return false;
+      if (length != b.length) return false;
       for (i = length; i-- !== 0;)
         if (a[i] !== b[i]) return false;
       return true;
@@ -67,14 +67,15 @@ module.exports = function equal(a, b) {
 
     keys = Object.keys(a);
     length = keys.length;
-
     if (length !== Object.keys(b).length) return false;
 
     for (i = length; i-- !== 0;)
       if (!Object.prototype.hasOwnProperty.call(b, keys[i])) return false;
 
-    for (i = length; i-- !== 0;)
-      if (!equal(a[keys[i]], b[keys[i]])) return false;
+    for (i = length; i-- !== 0;) {
+      var key = keys[i];
+      if (!equal(a[key], b[key])) return false;
+    }
 
     return true;
   }
