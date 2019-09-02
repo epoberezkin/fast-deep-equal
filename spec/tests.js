@@ -219,6 +219,12 @@ module.exports = [
         value1: {toString: ()=>'Hello world!'},
         value2: {toString: ()=>'Hello world!'},
         equal: true
+      },
+      {
+        description: 'objects with `toString` functions returning different values are not equal',
+        value1: {toString: ()=>'Hello world!'},
+        value2: {toString: ()=>'Hi!'},
+        equal: false
       }
     ]
   },
