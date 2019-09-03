@@ -13,7 +13,7 @@ function testCases(equalFunc, suiteName, suiteTests) {
     suiteTests.forEach(function (suite) {
       describe(suite.description, function() {
         suite.tests.forEach(function (test) {
-          it(test.description, function() {
+          (test.skip ? it.skip : it)(test.description, function() {
             assert.strictEqual(equalFunc(test.value1, test.value2), test.equal);
           });
         });

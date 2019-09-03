@@ -4,6 +4,8 @@ class MyMap extends Map {}
 class MySet extends Set {}
 var emptyObj = {};
 
+var skipBigInt = typeof BigUint64Array == 'undefined';
+
 module.exports = [
   {
     description: 'Maps',
@@ -232,9 +234,17 @@ module.exports = [
       },
       {
         description: 'equal BigUint64Array arrays',
-        value1: new BigUint64Array(['1', '2', '3']),
-        value2: new BigUint64Array(['1', '2', '3']),
-        equal: true
+        value1: skipBigInt || new BigUint64Array(['1', '2', '3']),
+        value2: skipBigInt || new BigUint64Array(['1', '2', '3']),
+        equal: true,
+        skip: skipBigInt
+      },
+      {
+        description: 'not equal BigUint64Array arrays',
+        value1: skipBigInt || new BigUint64Array(['1', '2', '3']),
+        value2: skipBigInt || new BigUint64Array(['1', '2', '4']),
+        equal: false,
+        skip: skipBigInt
       },
       {
         description: 'not equal arrays (same items, different class)',
