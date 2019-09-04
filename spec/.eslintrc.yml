@@ -5,4 +5,5 @@ rules:
 globals:
   describe: false
   it: false
+  BigInt: false
   BigUint64Array: false

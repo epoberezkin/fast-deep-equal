@@ -4,9 +4,30 @@ class MyMap extends Map {}
 class MySet extends Set {}
 var emptyObj = {};
 
-var skipBigInt = typeof BigUint64Array == 'undefined';
+var skipBigInt = typeof BigInt == 'undefined';
+var skipBigIntArray = typeof BigUint64Array == 'undefined';
 
 module.exports = [
+  {
+    description: 'bigint',
+    tests: [
+      {
+        description: 'equal bigints',
+        value1: skipBigInt || BigInt(1),
+        value2: skipBigInt || BigInt(1),
+        equal: true,
+        skip: skipBigInt
+      },
+      {
+        description: 'not equal bigints',
+        value1: skipBigInt || BigInt(1),
+        value2: skipBigInt || BigInt(2),
+        equal: false,
+        skip: skipBigInt
+      }
+    ]
+  },
+
   {
     description: 'Maps',
     tests: [
@@ -234,17 +255,17 @@ module.exports = [
       },
       {
         description: 'equal BigUint64Array arrays',
-        value1: skipBigInt || new BigUint64Array(['1', '2', '3']),
-        value2: skipBigInt || new BigUint64Array(['1', '2', '3']),
+        value1: skipBigIntArray || new BigUint64Array(['1', '2', '3']),
+        value2: skipBigIntArray || new BigUint64Array(['1', '2', '3']),
         equal: true,
-        skip: skipBigInt
+        skip: skipBigIntArray
       },
       {
         description: 'not equal BigUint64Array arrays',
-        value1: skipBigInt || new BigUint64Array(['1', '2', '3']),
-        value2: skipBigInt || new BigUint64Array(['1', '2', '4']),
+        value1: skipBigIntArray || new BigUint64Array(['1', '2', '3']),
+        value2: skipBigIntArray || new BigUint64Array(['1', '2', '4']),
         equal: false,
-        skip: skipBigInt
+        skip: skipBigIntArray
       },
       {
         description: 'not equal arrays (same items, different class)',
