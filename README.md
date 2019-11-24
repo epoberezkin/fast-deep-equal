@@ -59,17 +59,18 @@ console.log(equal(Int16Array([1, 2]), Int16Array([1, 2]))); // true
 Node.js v12.6.0:
 
 ```
-fast-deep-equal x 325,485 ops/sec ±0.57% (86 runs sampled)
-fast-deep-equal/es6 x 261,338 ops/sec ±0.45% (89 runs sampled)
-nano-equal x 231,064 ops/sec ±0.62% (88 runs sampled)
-shallow-equal-fuzzy x 164,828 ops/sec ±0.87% (88 runs sampled)
-underscore.isEqual x 91,247 ops/sec ±0.56% (88 runs sampled)
-lodash.isEqual x 48,000 ops/sec ±0.48% (86 runs sampled)
-deep-equal x 73,699 ops/sec ±0.55% (86 runs sampled)
-deep-eql x 42,804 ops/sec ±0.45% (87 runs sampled)
-ramda.equals x 15,119 ops/sec ±0.49% (87 runs sampled)
-util.isDeepStrictEqual x 58,458 ops/sec ±0.56% (89 runs sampled)
-assert.deepStrictEqual x 583 ops/sec ±0.47% (87 runs sampled)
+fast-deep-equal x 263,304 ops/sec ±0.57% (86 runs sampled)
+fast-deep-equal/es6 x 210,257 ops/sec ±0.34% (89 runs sampled)
+fast-equals x 233,740 ops/sec ±0.40% (91 runs sampled)
+nano-equal x 187,624 ops/sec ±0.30% (93 runs sampled)
+shallow-equal-fuzzy x 139,305 ops/sec ±0.37% (91 runs sampled)
+underscore.isEqual x 72,636 ops/sec ±0.26% (89 runs sampled)
+lodash.isEqual x 37,684 ops/sec ±1.14% (91 runs sampled)
+deep-equal x 2,390 ops/sec ±0.36% (88 runs sampled)
+deep-eql x 36,353 ops/sec ±0.55% (90 runs sampled)
+ramda.equals x 12,169 ops/sec ±0.39% (92 runs sampled)
+util.isDeepStrictEqual x 46,720 ops/sec ±0.38% (92 runs sampled)
+assert.deepStrictEqual x 461 ops/sec ±0.72% (86 runs sampled)
 
 The fastest is fast-deep-equal
 ```
@@ -79,6 +80,8 @@ To run benchmark (requires node.js 6+):
 ```bash
 npm run benchmark
 ```
+
+__Please note__: this benchmark runs against the available test cases. To choose the most performant library for your application, it is recommended to benchmark against your data and to NOT expect this benchmark to reflect the performance difference in your application.
 
 
 ## Enterprise support

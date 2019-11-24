@@ -4,6 +4,7 @@
     "benchmark": "^2.1.4",
     "deep-eql": "latest",
     "deep-equal": "latest",
+    "fast-equals": "latest",
     "lodash": "latest",
     "nano-equal": "latest",
     "ramda": "latest",
