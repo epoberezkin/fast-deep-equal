@@ -81,6 +81,11 @@ npm run benchmark
 ```
 
 
+## Enterprise support
+
+fast-deep-equal package is a part of [Tidelift enterprise subscription]((https://tidelift.com/subscription/pkg/npm-fast-deep-equal?utm_source=npm-fast-deep-equal&utm_medium=referral&utm_campaign=enterprise&utm_term=repo)) - it provides a centralised commercial support to open-source software users, in addition to the support provided by software maintainers.
+
+
 ## License
 
 [MIT](https://github.com/epoberezkin/fast-deep-equal/blob/master/LICENSE)
