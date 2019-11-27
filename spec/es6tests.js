@@ -138,7 +138,18 @@ module.exports = [
         value1: undefined,
         value2: new Map,
         equal: false
-      }
+      },
+      {
+        description: 'map and a pseudo map are not equal',
+        value1: map({}),
+        value2: {
+          constructor: Map,
+          size: 0,
+          has: () => true,
+          get: () => 1,
+        },
+        equal: false
+      },
     ]
   },
 
@@ -228,7 +239,17 @@ module.exports = [
         value1: set([undefined]),
         value2: set([]),
         equal: false
-      }
+      },
+      {
+        description: 'set and pseudo set are not equal',
+        value1: new Set,
+        value2: {
+          constructor: Set,
+          size: 0,
+          has: () => true,
+        },
+        equal: false
+      },
     ]
   },
 
