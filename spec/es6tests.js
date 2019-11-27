@@ -287,7 +287,7 @@ module.exports = [
       },
       {
         description: 'pseudo array and equivalent typed array are not equal',
-        value1: {'0': 1, '1': 2, length: 2},
+        value1: {'0': 1, '1': 2, length: 2, constructor: Int32Array},
         value2: new Int32Array([1, 2]),
         equal: false
       }

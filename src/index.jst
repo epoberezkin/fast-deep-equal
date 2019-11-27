@@ -41,18 +41,7 @@ module.exports = function equal(a, b) {
       return true;
     }
 
-    if (a.constructor.BYTES_PER_ELEMENT && (
-      a instanceof Int8Array ||
-      a instanceof Uint8Array ||
-      a instanceof Uint8ClampedArray ||
-      a instanceof Int16Array ||
-      a instanceof Uint16Array ||
-      a instanceof Int32Array ||
-      a instanceof Uint32Array ||
-      a instanceof Float32Array ||
-      a instanceof Float64Array ||
-      (envHasBigInt64Array && (a instanceof BigInt64Array || a instanceof BigUint64Array))
-    )) {
+    if (ArrayBuffer.isView(a) && ArrayBuffer.isView(b)) {
       length = a.length;
       if (length != b.length) return false;
       for (i = length; i-- !== 0;)
