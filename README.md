@@ -1,26 +1,12 @@
 # fast-deep-equal
-The fastest deep equal
+The fastest deep equal with ES6 Map, Set and Typed arrays support.
 
 [![Build Status](https://travis-ci.org/epoberezkin/fast-deep-equal.svg?branch=master)](https://travis-ci.org/epoberezkin/fast-deep-equal)
 [![npm](https://img.shields.io/npm/v/fast-deep-equal.svg)](https://www.npmjs.com/package/fast-deep-equal)
-[![npm](https://img.shields.io/npm/v/fast-deep-equal/beta.svg)](https://www.npmjs.com/package/fast-deep-equal)
 [![Coverage Status](https://coveralls.io/repos/github/epoberezkin/fast-deep-equal/badge.svg?branch=master)](https://coveralls.io/github/epoberezkin/fast-deep-equal?branch=master)
 
 
-This readme is for pre-release v3 with ES6 Map, Set and Typed arrays support.
-
-See branch [v2](https://github.com/epoberezkin/fast-deep-equal/tree/v2) for the main version.
-
-
 ## Install
-
-To install v3 pre-release with ES6 Map, Set and Typed arrays support
-
-```bash
-npm install fast-deep-equal@beta
-```
-
-To install [v2](https://github.com/epoberezkin/fast-deep-equal/tree/v2)
 
 ```bash
 npm install fast-deep-equal
@@ -94,6 +80,7 @@ fast-deep-equal package is a part of [Tidelift enterprise subscription](https://
 To report a security vulnerability, please use the
 [Tidelift security contact](https://tidelift.com/security).
 Tidelift will coordinate the fix and disclosure. Please do NOT report security vulnerability via GitHub issues.
+
 
 ## License
 
