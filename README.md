@@ -39,7 +39,7 @@ var equal = require('fast-deep-equal/es6');
 console.log(equal(Int16Array([1, 2]), Int16Array([1, 2]))); // true
 ```
 
-To better support for React use:
+For better support for React use:
 
 ```javascript
 var equal = require('fast-deep-equal/react');
