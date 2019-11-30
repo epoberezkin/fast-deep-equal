@@ -16,6 +16,9 @@ function testCases(equalFunc, suiteName, suiteTests) {
           (test.skip ? it.skip : it)(test.description, function() {
             assert.strictEqual(equalFunc(test.value1, test.value2), test.equal);
           });
+          (test.skip ? it.skip : it)(test.description + ' (reverse arguments)', function() {
+            assert.strictEqual(equalFunc(test.value2, test.value1), test.equal);
+          });
         });
       });
     });
