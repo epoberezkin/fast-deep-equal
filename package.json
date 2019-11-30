@@ -4,7 +4,7 @@
   "description": "Fast deep equal",
   "main": "index.js",
   "scripts": {
-    "eslint": "eslint *.js benchmark spec",
+    "eslint": "eslint *.js benchmark/*.js spec/*.js",
     "build": "node build",
     "benchmark": "npm i && npm run build && cd ./benchmark && npm i && node ./",
     "test-spec": "mocha spec/*.spec.js -R spec",
