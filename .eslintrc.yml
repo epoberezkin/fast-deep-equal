@@ -24,3 +24,9 @@ rules:
   callback-return: 2
   no-path-concat: 2
   no-empty: 0
+globals:
+  document: false
+  Element: false
+  beforeEach: false
+  afterEach: false
+  xit: false

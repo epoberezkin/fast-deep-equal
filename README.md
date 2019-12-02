@@ -39,6 +39,15 @@ var equal = require('fast-deep-equal/es6');
 console.log(equal(Int16Array([1, 2]), Int16Array([1, 2]))); // true
 ```
 
+To use with React (avoiding the traversal of React elements' _owner
+property that contains circular references and is not needed when
+comparing the elements - borrowed from [react-fast-compare](https://github.com/FormidableLabs/react-fast-compare)):
+
+```javascript
+var equal = require('fast-deep-equal/react');
+var equal = require('fast-deep-equal/es6/react');
+```
+
 
 ## Performance benchmark
 
