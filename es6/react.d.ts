@@ -1,2 +1,2 @@
-declare const equal: (a: any, b: any) => boolean;
-export = equal;
+declare function equal<T>(actual: any, expected: T): actual is T
+export = equal
