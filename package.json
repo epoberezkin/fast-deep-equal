@@ -31,7 +31,7 @@
   "devDependencies": {
     "coveralls": "^2.13.1",
     "dot": "^1.1.2",
-    "eslint": "^4.0.0",
+    "eslint": "^7.1.0",
     "mocha": "^3.4.2",
     "nyc": "^11.0.2",
     "pre-commit": "^1.2.2",
