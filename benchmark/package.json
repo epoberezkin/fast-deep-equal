@@ -8,6 +8,7 @@
     "lodash": "latest",
     "nano-equal": "latest",
     "ramda": "latest",
+    "fast-safe-stringify": "latest",
     "shallow-equal-fuzzy": "latest",
     "underscore": "latest"
   }
