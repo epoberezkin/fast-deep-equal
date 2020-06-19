@@ -7,6 +7,10 @@ const suite = new Benchmark.Suite;
 
 
 const equalPackages = {
+  'fast-safe-stringify': (() => {
+    const stringify = require('fast-safe-stringify');
+    return (str1, str2) => stringify(str1) === stringify(str2);
+  })(),
   'fast-deep-equal': require('..'),
   'fast-deep-equal/es6': require('../es6'),
   'fast-equals': require('fast-equals').deepEqual,
