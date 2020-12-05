@@ -54,18 +54,20 @@ var equal = require('fast-deep-equal/es6/react');
 Node.js v12.6.0:
 
 ```
-fast-deep-equal x 261,950 ops/sec ±0.52% (89 runs sampled)
-fast-deep-equal/es6 x 212,991 ops/sec ±0.34% (92 runs sampled)
-fast-equals x 230,957 ops/sec ±0.83% (85 runs sampled)
-nano-equal x 187,995 ops/sec ±0.53% (88 runs sampled)
-shallow-equal-fuzzy x 138,302 ops/sec ±0.49% (90 runs sampled)
-underscore.isEqual x 74,423 ops/sec ±0.38% (89 runs sampled)
-lodash.isEqual x 36,637 ops/sec ±0.72% (90 runs sampled)
-deep-equal x 2,310 ops/sec ±0.37% (90 runs sampled)
-deep-eql x 35,312 ops/sec ±0.67% (91 runs sampled)
-ramda.equals x 12,054 ops/sec ±0.40% (91 runs sampled)
-util.isDeepStrictEqual x 46,440 ops/sec ±0.43% (90 runs sampled)
-assert.deepStrictEqual x 456 ops/sec ±0.71% (88 runs sampled)
+| Name                   |  ops/sec | ±       | runs sampled  |
+|------------------------|----------|---------|---------------|
+| fast-deep-equal        | 261,950  | ±0.52%  | 89            |
+| fast-deep-equal/es6    | 212,991  | ±0.34%  | 92            |
+| fast-equals            | 230,957  | ±0.83%  | 85            |
+| nano-equal             | 187,995  | ±0.53%  | 88            |
+| shallow-equal-fuzzy    | 138,302  | ±0.49%  | 90            |
+| underscore.isEqual     | 74,423   | ±0.38%  | 89            |
+| lodash.isEqual         | 36,637   | ±0.72%  | 90            |
+| deep-equal             | 2,310    | ±0.37%  | 90            |
+| deep-eql               | 35,312   | ±0.67%  | 91            |
+| ramda.equals           | 12,054   | ±0.40%  | 91            |
+| util.isDeepStrictEqual | 46,440   | ±0.43%  | 90            |
+| assert.deepStrictEqual | 456      | ±0.71%  | 88            |
 
 The fastest is fast-deep-equal
 ```
