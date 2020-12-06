@@ -6,18 +6,24 @@
   var envHasBigInt64Array = typeof BigInt64Array !== 'undefined';
 {{?}}
 
-module.exports = function equal(a, b) {
+module.exports = function equal(a, b, compared) {
   if (a === b) return true;
 
   if (a && b && typeof a == 'object' && typeof b == 'object') {
     if (a.constructor !== b.constructor) return false;
+
+{{? it.es6 && it.cycles }}
+    if (!compared) compared = new WeakMap();
+    if (compared.has(a)) return compared.get(a) === b;
+    compared.set(a, b);
+{{?}}
 
     var length, i, keys;
     if (Array.isArray(a)) {
       length = a.length;
       if (length != b.length) return false;
       for (i = length; i-- !== 0;)
-        if (!equal(a[i], b[i])) return false;
+        if (!equal(a[i], b[i], compared)) return false;
       return true;
     }
 
@@ -27,7 +33,7 @@ module.exports = function equal(a, b) {
       for (i of a.entries())
         if (!b.has(i[0])) return false;
       for (i of a.entries())
-        if (!equal(i[1], b.get(i[0]))) return false;
+        if (!equal(i[1], b.get(i[0]), compared)) return false;
       return true;
     }
 
@@ -68,7 +74,7 @@ module.exports = function equal(a, b) {
         continue;
       }
 {{?}}
-      if (!equal(a[key], b[key])) return false;
+      if (!equal(a[key], b[key], compared)) return false;
     }
 
     return true;
