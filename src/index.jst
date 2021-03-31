@@ -6,7 +6,12 @@
   var envHasBigInt64Array = typeof BigInt64Array !== 'undefined';
 {{?}}
 
+{{? it.esm }}
+export default function equal(a, b) {
+{{?}}
+{{? !it.esm }}
 module.exports = function equal(a, b) {
+{{?}}
   if (a === b) return true;
 
   if (a && b && typeof a == 'object' && typeof b == 'object') {
