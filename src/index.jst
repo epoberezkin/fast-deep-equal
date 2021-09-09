@@ -33,8 +33,8 @@ module.exports = function equal(a, b) {
 
     if ((a instanceof Set) && (b instanceof Set)) {
       if (a.size !== b.size) return false;
-      for (i of a.entries())
-        if (!b.has(i[0])) return false;
+      for (i of a.values())
+        if (!b.has(i)) return false;
       return true;
     }
 
