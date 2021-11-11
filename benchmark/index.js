@@ -10,6 +10,7 @@ const equalPackages = {
   'fast-deep-equal': require('..'),
   'fast-deep-equal/es6': require('../es6'),
   'fast-equals': require('fast-equals').deepEqual,
+  'dequal': require('dequal').dequal,
   'nano-equal': true,
   'shallow-equal-fuzzy': true,
   'underscore.isEqual': require('underscore').isEqual,
