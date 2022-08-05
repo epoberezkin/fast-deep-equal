@@ -225,6 +225,12 @@ module.exports = [
         value1: {toString: ()=>'Hello world!'},
         value2: {toString: ()=>'Hi!'},
         equal: false
+      },
+      {
+        description: 'objects without `valueOf` and `toString` function do not throw error',
+        value1: Object.assign(Object.create(null), { a: 1 }),
+        value2: Object.assign(Object.create(null), { a: 1 }),
+        equal: true
       }
     ]
   },
