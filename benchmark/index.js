@@ -4,7 +4,7 @@ const assertDeepStrictEqual = require('assert').deepStrictEqual;
 const tests = require('../spec/tests');
 const Benchmark = require('benchmark');
 const suite = new Benchmark.Suite;
-
+/////
 
 const equalPackages = {
   'fast-deep-equal': require('..'),
