@@ -48,8 +48,12 @@ module.exports = function equal(a, b) {
 {{?}}
 
     if (a.constructor === RegExp) return a.source === b.source && a.flags === b.flags;
-    if (a.valueOf !== Object.prototype.valueOf) return a.valueOf() === b.valueOf();
-    if (a.toString !== Object.prototype.toString) return a.toString() === b.toString();
+    if ((a.valueOf !== Object.prototype.valueOf || b.valueOf !== Object.prototype.valueOf)
+        && typeof a.valueOf === 'function' && typeof b.valueOf === 'function')
+      return a.valueOf() === b.valueOf();
+    if ((a.toString !== Object.prototype.toString || b.toString !== Object.prototype.toString)
+        && typeof a.toString === 'function' && typeof b.toString === 'function')
+      return a.toString() === b.toString();
 
     keys = Object.keys(a);
     length = keys.length;

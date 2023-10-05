@@ -225,7 +225,19 @@ module.exports = [
         value1: {toString: ()=>'Hello world!'},
         value2: {toString: ()=>'Hi!'},
         equal: false
-      }
+      },
+      {
+        description: "objects with `valueOf` property that isn't a function don't throw",
+        value1: {valueOf: {}},
+        value2: {valueOf: {}},
+        equal: true
+      },
+      {
+        description: "objects with `toString` property that isn't a function don't throw",
+        value1: {toString: {}},
+        value2: {toString: {}},
+        equal: true
+      },
     ]
   },
 
