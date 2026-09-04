@@ -30,3 +30,5 @@ globals:
   beforeEach: false
   afterEach: false
   xit: false
+  Map: false
+  Set: false

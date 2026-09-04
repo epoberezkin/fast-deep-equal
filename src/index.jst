@@ -21,23 +21,37 @@ module.exports = function equal(a, b) {
       return true;
     }
 
+    // Map and Set aren't ES5, but leaving them out of this build entirely
+    // (rather than the /es6 build) used to mean a Map or Set compared here
+    // fell through to the generic-object path below, which reads
+    // Object.keys() and finds none on either side, since neither type
+    // exposes its entries as enumerable own properties. That made any two
+    // Maps, or any two Sets, compare equal regardless of their contents.
+    // Feature-detecting instead of gating this on the es6 template flag
+    // above, and using .forEach() instead of for..of, keeps this build's ES5
+    // syntax while still comparing real contents when the environment does
+    // have Map/Set (which is effectively always, today).
+    if (typeof Map !== 'undefined' && a instanceof Map && b instanceof Map) {
+      if (a.size !== b.size) return false;
+      var mapsEqual = true;
+      a.forEach(function (aValue, key) {
+        if (!mapsEqual) return;
+        if (!b.has(key) || !equal(aValue, b.get(key))) mapsEqual = false;
+      });
+      return mapsEqual;
+    }
+
+    if (typeof Set !== 'undefined' && a instanceof Set && b instanceof Set) {
+      if (a.size !== b.size) return false;
+      var setsEqual = true;
+      a.forEach(function (aValue) {
+        if (!setsEqual) return;
+        if (!b.has(aValue)) setsEqual = false;
+      });
+      return setsEqual;
+    }
+
 {{? it.es6 }}
-    if ((a instanceof Map) && (b instanceof Map)) {
-      if (a.size !== b.size) return false;
-      for (i of a.entries())
-        if (!b.has(i[0])) return false;
-      for (i of a.entries())
-        if (!equal(i[1], b.get(i[0]))) return false;
-      return true;
-    }
-
-    if ((a instanceof Set) && (b instanceof Set)) {
-      if (a.size !== b.size) return false;
-      for (i of a.entries())
-        if (!b.has(i[0])) return false;
-      return true;
-    }
-
     if (ArrayBuffer.isView(a) && ArrayBuffer.isView(b)) {
       length = a.length;
       if (length != b.length) return false;

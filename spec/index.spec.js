@@ -7,6 +7,13 @@ var es6equalReact = require('../es6/react');
 var assert = require('assert');
 
 testCases(equal, 'equal - standard tests', require('./tests'));
+// Maps and Sets aren't handled by the array/RegExp/valueOf/toString fast
+// paths above, and neither type exposes its entries as enumerable own
+// properties, so two different Maps (or Sets) used to compare equal here
+// via the generic Object.keys() fallback below. Everything else in
+// es6tests.js (bigint, typed arrays) already passed here too, since those
+// go through === or the toString() fast path either way.
+testCases(equal, 'equal - es6 tests', require('./es6tests'));
 testCases(es6equal, 'es6 equal - standard tests', require('./tests'));
 testCases(es6equal, 'es6 equal - es6 tests', require('./es6tests'));
 
