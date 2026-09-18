@@ -14,12 +14,14 @@ module.exports = function equal(a, b) {
 
     var length, i, keys;
     if (Array.isArray(a)) {
+      if (!Array.isArray(b)) return false;
       length = a.length;
       if (length != b.length) return false;
       for (i = length; i-- !== 0;)
         if (!equal(a[i], b[i])) return false;
       return true;
     }
+    if (Array.isArray(b)) return false;
 
 {{? it.es6 }}
     if ((a instanceof Map) && (b instanceof Map)) {
