@@ -302,6 +302,24 @@ module.exports = [
         value1: new Date('2017-06-16T21:36:48.362Z'),
         value2: {},
         equal: false
+      },
+      {
+        description: 'invalid date objects are equal',
+        value1: new Date('foo'),
+        value2: new Date('bar'),
+        equal: true
+      },
+      {
+        description: 'invalid date and valid date are not equal',
+        value1: new Date('foo'),
+        value2: new Date('2017-06-16T21:36:48.362Z'),
+        equal: false
+      },
+      {
+        description: 'valid date and invalid date are not equal',
+        value1: new Date('2017-06-16T21:36:48.362Z'),
+        value2: new Date('foo'),
+        equal: false
       }
     ]
   },

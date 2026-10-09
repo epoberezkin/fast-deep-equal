@@ -48,7 +48,11 @@ module.exports = function equal(a, b) {
 {{?}}
 
     if (a.constructor === RegExp) return a.source === b.source && a.flags === b.flags;
-    if (a.valueOf !== Object.prototype.valueOf) return a.valueOf() === b.valueOf();
+    if (a.valueOf !== Object.prototype.valueOf) {
+      var aValue = a.valueOf(), bValue = b.valueOf();
+      // true if both NaN (e.g. invalid dates), same as for primitives below
+      return aValue === bValue || (aValue !== aValue && bValue !== bValue);
+    }
     if (a.toString !== Object.prototype.toString) return a.toString() === b.toString();
 
     keys = Object.keys(a);
