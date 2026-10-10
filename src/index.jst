@@ -38,6 +38,14 @@ module.exports = function equal(a, b) {
       return true;
     }
 
+    if ((a instanceof DataView) && (b instanceof DataView)) {
+      length = a.byteLength;
+      if (length !== b.byteLength) return false;
+      for (i = length; i-- !== 0;)
+        if (a.getUint8(i) !== b.getUint8(i)) return false;
+      return true;
+    }
+
     if (ArrayBuffer.isView(a) && ArrayBuffer.isView(b)) {
       length = a.length;
       if (length != b.length) return false;

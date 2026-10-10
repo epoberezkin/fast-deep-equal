@@ -9,6 +9,42 @@ var skipBigIntArray = typeof BigUint64Array == 'undefined';
 
 module.exports = [
   {
+    description: 'DataViews',
+    tests: [
+      {
+        description: 'empty DataViews are equal',
+        value1: new DataView(new ArrayBuffer(0)),
+        value2: new DataView(new ArrayBuffer(0)),
+        equal: true
+      },
+      {
+        description: 'DataViews with the same bytes are equal',
+        value1: new DataView(new Uint8Array([1, 2]).buffer),
+        value2: new DataView(new Uint8Array([1, 2]).buffer),
+        equal: true
+      },
+      {
+        description: 'DataViews with different bytes are not equal',
+        value1: new DataView(new Uint8Array([1, 2]).buffer),
+        value2: new DataView(new Uint8Array([1, 3]).buffer),
+        equal: false
+      },
+      {
+        description: 'DataViews with different lengths are not equal',
+        value1: new DataView(new Uint8Array([1, 2]).buffer),
+        value2: new DataView(new Uint8Array([1, 2, 3]).buffer),
+        equal: false
+      },
+      {
+        description: 'DataViews compare only the visible byte range',
+        value1: new DataView(new Uint8Array([9, 1, 2, 8]).buffer, 1, 2),
+        value2: new DataView(new Uint8Array([1, 2, 7]).buffer, 0, 2),
+        equal: true
+      }
+    ]
+  },
+
+  {
     description: 'bigint',
     tests: [
       {
