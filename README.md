@@ -51,21 +51,20 @@ var equal = require('fast-deep-equal/es6/react');
 
 ## Performance benchmark
 
-Node.js v12.6.0:
+Node.js v24.19.0:
 
 ```
-fast-deep-equal x 261,950 ops/sec ±0.52% (89 runs sampled)
-fast-deep-equal/es6 x 212,991 ops/sec ±0.34% (92 runs sampled)
-fast-equals x 230,957 ops/sec ±0.83% (85 runs sampled)
-nano-equal x 187,995 ops/sec ±0.53% (88 runs sampled)
-shallow-equal-fuzzy x 138,302 ops/sec ±0.49% (90 runs sampled)
-underscore.isEqual x 74,423 ops/sec ±0.38% (89 runs sampled)
-lodash.isEqual x 36,637 ops/sec ±0.72% (90 runs sampled)
-deep-equal x 2,310 ops/sec ±0.37% (90 runs sampled)
-deep-eql x 35,312 ops/sec ±0.67% (91 runs sampled)
-ramda.equals x 12,054 ops/sec ±0.40% (91 runs sampled)
-util.isDeepStrictEqual x 46,440 ops/sec ±0.43% (90 runs sampled)
-assert.deepStrictEqual x 456 ops/sec ±0.71% (88 runs sampled)
+fast-deep-equal x 833,120 ops/sec ±0.23% (98 runs sampled)
+fast-deep-equal/es6 x 760,375 ops/sec ±0.30% (98 runs sampled)
+fast-equals x 805,406 ops/sec ±0.21% (95 runs sampled)
+nano-equal x 486,658 ops/sec ±0.55% (99 runs sampled)
+shallow-equal-fuzzy x 425,674 ops/sec ±0.58% (98 runs sampled)
+underscore.isEqual x 236,014 ops/sec ±0.19% (101 runs sampled)
+lodash.isEqual x 145,884 ops/sec ±1.03% (96 runs sampled)
+deep-equal x 325 ops/sec ±0.41% (85 runs sampled)
+ramda.equals x 51,509 ops/sec ±0.35% (99 runs sampled)
+util.isDeepStrictEqual x 260,454 ops/sec ±0.38% (96 runs sampled)
+assert.deepStrictEqual x 2,665 ops/sec ±0.41% (94 runs sampled)
 
 The fastest is fast-deep-equal
 ```

@@ -358,6 +358,35 @@ module.exports = [
     ]
   },
   {
+    description: 'objects with inherited enumerable properties',
+    tests: [
+      {
+        description: 'instances with equal own properties are equal regardless of prototype properties',
+        value1: new WithProto(1),
+        value2: new WithProto(1),
+        equal: true
+      },
+      {
+        description: 'instances with different own properties are not equal',
+        value1: new WithProto(1),
+        value2: new WithProto(2),
+        equal: false
+      },
+      {
+        description: 'inherited property does not count as an own property of the other object',
+        value1: new WithProto(1),
+        value2: Object.assign(new WithProto(1), {inherited: 'base'}),
+        equal: false
+      },
+      {
+        description: 'own property shadowing an inherited one is compared',
+        value1: Object.assign(new WithProto(1), {inherited: 'a'}),
+        value2: Object.assign(new WithProto(1), {inherited: 'b'}),
+        equal: false
+      }
+    ]
+  },
+  {
     description: 'sample objects',
     tests: [
       {
@@ -398,3 +427,6 @@ module.exports = [
 
 function func1() {}
 function func2() {}
+
+function WithProto(own) { this.own = own; }
+WithProto.prototype.inherited = 'base';
